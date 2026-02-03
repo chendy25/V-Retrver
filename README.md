@@ -1,6 +1,6 @@
 # V-Retrver: Evidence-Driven Agentic Reasoning for Universal Multimodal Retrieval
 
-[[📖 Paper]()] [[🤗 V-Retrver-7B-model]()] [🤗[V-Retrver-RFT-model]()] [🤗[V-Retrver-SFT-model]()] [[🤗 V-Retrver-train-data]()] [🤗 [V-Retrver-eval]()]
+[[📖 Paper]()] [[🤗 V-Retrver-7B-model]()] [🤗[V-Retrver-RFT-model]()] [🤗[V-Retrver-SFT-model]()] [[🤗 V-Retrver-train-data]()] [🤗 [V-Retrver-eval-data]()]
 
 
 
