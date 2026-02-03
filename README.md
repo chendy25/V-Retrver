@@ -52,13 +52,13 @@ V-Retrver-7B demonstrates strong performance across multiple multimodal retrieva
  Some reasoning examples are as follows.
 
 <div align="center">
-  <img src="assets/exp1.png" width="36%">
+  <img src="assets/exp1.png" width="80%">
 </div>
 <div align="center">
-  <img src="assets/exp2.png" width="36%">
+  <img src="assets/exp2.png" width="80%">
 </div>
 <div align="center">
-  <img src="assets/exp3.png" width="36%">
+  <img src="assets/exp3.png" width="80%">
 </div>
 
 
