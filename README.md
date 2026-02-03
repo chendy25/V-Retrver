@@ -7,7 +7,7 @@
 ## 👀 About OneThinker
 
 <div align="center">
-  <img src="./assets/teaser.png" alt="Descriptive alt text" width="95%">
+  <img src="./assets/intro.png" alt="Descriptive alt text" width="95%">
 </div>
 
 We introduce **OneThinker**, an all-in-one multimodal reasoning generalist that is **capable of thinking across a wide range of fundamental visual tasks within a single model**.
