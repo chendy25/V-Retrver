@@ -4,7 +4,7 @@
 
 
 
-## 👀 About OneThinker
+## 👀 About V-Retrver
 
 <div align="center">
   <img src="./assets/intro.png" alt="Descriptive alt text" width="95%">
