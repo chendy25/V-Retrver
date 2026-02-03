@@ -10,129 +10,56 @@
   <img src="./assets/intro.png" alt="Descriptive alt text" width="95%">
 </div>
 
-We introduce **OneThinker**, an all-in-one multimodal reasoning generalist that is **capable of thinking across a wide range of fundamental visual tasks within a single model**.
+We introduce **V-Retrver**, an evidence-driven retrieval framework that reformulates multimodal retrieval as an agentic reasoning process grounded in visual inspection. V-Retrver enables an MLLM to selectively acquire visual evidence during reasoning via external visual tools, performing a **multimodal interleaved reasoning** process that alternates between hypothesis generation and targeted visual verification. 
 
-We construct the large-scale **OneThinker-600k** multi-task training corpus and build **OneThinker-SFT-340k** with high-quality CoT annotations for cold-start SFT. Moreover, we propose **EMA-GRPO**, a new RL method that **balances heterogeneous reward signals across diverse visual tasks**, via simply tracking task-wise moving averages of reward std.
+To train such an evidence-gathering retrieval agent, we adopt a curriculum-based learning strategy combining **supervised reasoning activation, rejection-based refinement, and reinforcement learning** with an evidence-aligned objective. 
 
-OneThinker demonstrates **strong performance on 31 benchmarks across 10 fundamental vision tasks**, while showing cross-task knowledge transfer and promising zero-shot generalization toward a **unified multimodal reasoning generalist**.
+Experiments across multiple multimodal retrieval benchmarks demonstrate consistent improvements in retrieval accuracy **(with 23.0\% improvements on average)**, perception-driven reasoning reliability, and generalization.
 
 All code, models, and data are fully released.
 
 
 
 ## 🔥 News
-- [2025/12/03] We release the code, model, data of OneThinker
+- [2025/12/03] We release the code, model, data of V-Retrver
 
 ## 📍 Features
 
-+ Support Qwen3-VL Training
-+ Support Image-Video mixed training
-+ Support reward types in diverse visual tasks
-+ Provide full pipeline (dataset, SFT training, RL training, evaluation, etc) 
++ Support Qwen3-VL/Qwen2.5-VL Training
++ Provide full pipeline (dataset, SFT training, RFT training, RL training, evaluation, etc) 
 
-## 🔍 Dataset
-
-Our dataset covers both image and video modalities and spans a series of fundamental visual reasoning tasks, including rule-based QA, open-ended QA, captioning, spatial grounding, temporal grounding, spatio-temporal grounding, tracking, and segmentation
-
-<div align="center">
-  <img src="./assets/dataset.png" alt="Descriptive alt text" width="90%">
-</div>
-
-To enable effective SFT initialization for reasoning, we leverage a strong proprietary model, Seed1.5-VL  to produce CoT annotations.
 
 ## 🏆 Performance
 
-Our model obtains significant performance gains after training based on Qwen3-VL-Instruct-8B across diverse visual tasks. For examle, OneThinker-8B reaches 70.6% accuracy on MMMU, 64.3% on MathVerse, 66.2% on VideoMMMU, 93.7 on Refcoco-testA, 54.9 J&F on ReasonVOS.
+V-Retrver-7B demonstrates strong performance across multiple multimodal retrieval benchmarks.
 
 
 
 <div align="center">
-  <img src="./assets/performance.png" alt="Descriptive alt text" width="90%">
+  <img src="./assets/tab1.png" alt="Descriptive alt text" width="90%">
+</div>
+<div align="center">
+  <img src="./assets/tab2.png" alt="Descriptive alt text" width="90%">
+</div>
+<div align="center">
+  <img src="./assets/tab3.png" alt="Descriptive alt text" width="90%">
 </div>
 
 
 
-Besides, we also observe beneficial cross-task and cross-modality knowledge transfer, along with promising preliminary zero-shot generalization under unified training. This highlights the  effectiveness and generalization ability of our unified training framework across diverse visual tasks. 
-
-
-## 🎥 Demo
+## 🎥 Reasoning Examples
 
  Some reasoning examples are as follows.
 
-<details open>
-<summary>Demo 1 (QA)</summary>
-
-
-
 <div align="center">
-  <img src="assets/math.png" width="36%">
+  <img src="assets/exp1.png" width="36%">
 </div>
-
-**Question:**  
-As shown in the figure, AB is the diameter of ⊙O, and points C and D are on ⊙O. If ∠ABD = 50.0, then the degree of ∠BCD is () Choices: (A) 30° (B) 35° (C) 40° (D) 45°
-
-<details>
-<summary><b>Thinking Process (click to expand)</b></summary>
-&lt;think&gt; Got it, let's try to solve this problem step by step. First, let's recall some circle theorems. \n\nWe know that AB is the diameter of circle O. So, any angle inscribed in a semicircle is a right angle. That means ∠ACB should be 90° because triangle ACB is inscribed in the semicircle with AB as the diameter. Now, let's look at ∠ABD. The problem says ∠ABD is 50°. Let's think about quadrilateral or triangles here. Maybe we can use the inscribed angle theorem, which states that an inscribed angle is half the measure of its intercepted arc. First, let's consider arc AD or arc AB. Since AB is the diameter, the arc AB is 180°. ∠ABD is an inscribed angle that intercepts arc AD. So ∠ABD intercepts arc AD, so the measure of arc AD would be 2 × ∠ABD = 2 × 50° = 100°? Wait, maybe not. Let's check another angle. Alternatively, ∠BAD and ∠BCD might be related. Let's see. ∠BAD is an inscribed angle intercepting arc BD. ∠BCD is also an inscribed angle intercepting arc BD. So they might be equal or supplementary?
-
-
-
-Wait, AB is the diameter, so ∠ADB is also a right angle (since angle inscribed in a semicircle). So triangle ADB is a right-angled triangle at D. In triangle ADB, ∠ABD is 50°, so ∠BAD = 90° - 50° = 40°. \n\nNow, ∠BCD and ∠BAD are inscribed angles that intercept the same arc BD. Because ∠BAD intercepts arc BD, and ∠BCD also intercepts arc BD. So they should be equal. Therefore, ∠BCD = ∠BAD = 40°. Let's verify again.\n\nAB is diameter, so ∠ACB = 90°, ∠ADB = 90°. In △ABD, ∠BAD = 90° - 50° = 40°. ∠BCD and ∠BAD both subtend arc BD, so they are equal. Hence, ∠BCD is 40°, which is option C.&lt;/think&gt;
-
-\<answe\>C\</answer\>
-
-</details>
-
-</details>
-
-<details open>
-<summary>Demo 2 (Tracking)</summary>
-
-
-
-
-
 <div align="center">
-  <img src="assets/got_car.gif" width="60%">
+  <img src="assets/exp2.png" width="36%">
 </div>
-
-**Question:**  
-Given the bounding box [537,403,768,703] of the target object in the first frame, track this object in each frame.
-
-<details>
-<summary><b>Thinking Process (click to expand)</b></summary>
-&lt;think&gt; To track the white Ford Mustang convertible across each second up to 32 seconds, observe its movement pattern: the car travels forward along the road, so its position in the frame shifts subtly over time. Initially, the car occupies a central area of the frame. As seconds pass, the car moves closer to the camera, causing its bounding box to adjust incrementally. Over each second, the car’s position shifts slightly toward the lower portion of the frame (as it approaches the camera) and its bounding box expands a bit to account for the closer perspective. Throughout the sequence, the car remains the central focus, with smooth, gradual changes in its placement and the size of the bounding box reflecting its forward motion and proximity to the camera.&lt;/think&gt;
-
-\<answer\>{"boxes": {"1": [537, 403, 768, 703], "2": [537, 353, 797, 690], "3": [532, 323, 827, 687], "4": [519, 282, 850, 690], "5": [515, 260, 877, 694], "6": [510, 246, 887, 694], "7": [509, 246, 897, 703], "8": [509, 232, 947, 710], "9": [509, 210, 972, 732], "10": [482, 200, 989, 787], "11": [469, 196, 995, 856], "12": [459, 203, 995, 929], "13": [422, 221, 995, 987], "14": [397, 244, 995, 994], "15": [389, 250, 995, 994], "16": [382, 250, 995, 994], "17": [370, 250, 995, 994], "18": [364, 250, 995, 994], "19": [362, 250, 995, 994], "20": [354, 244, 995, 994], "21": [350, 239, 995, 994], "22": [347, 239, 995, 994], "23": [347, 244, 965, 979], "24": [350, 244, 945, 944], "25": [350, 244, 904, 910], "26": [350, 244, 845, 860], "27": [347, 244, 797, 779], "28": [347, 244, 772, 750], "29": [350, 250, 764, 742], "30": [350, 250, 757, 739], "31": [350, 250, 750, 739], "32": [350, 250, 750, 739]}}\</answer\>
-
-</details>
-
-</details>
-
-<details open>
-<summary>Demo 3 (Segmentation)</summary>
-
-
-
 <div align="center">
-  <img src="assets/lalaland.gif" width="60%">
+  <img src="assets/exp3.png" width="36%">
 </div>
-
-**Question:**  
-Pleae segment the shorter one.
-
-<details>
-<summary><b>Thinking Process (click to expand)</b></summary>
-&lt;think&gt; To identify the shorter individual, focus on the person in the yellow dress. At the start of the video (around 0.0 seconds), this person is clearly visible. For positive reference points, select areas on the yellow dress itself—such as the chest, midsection, and skirt. For negative reference points, choose areas outside the person, like the road or the sky in the background.&lt;/think&gt;
-
-\<answer\>{"time": 0.0, "boxes": [426, 300, 528, 775], "positive_points": [[454, 450], [468, 550], [472, 650]], "negative_points": [[300, 500], [600, 500], [400, 200]]}\</answer\>
-
-</details>
-
-</details>
-
-
-
 
 
 ## 📐 Set up
