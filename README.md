@@ -74,10 +74,10 @@ pip install "flash-attn==2.8.3" --no-build-isolation
 
 We recommend to use the popular [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) to perform SFT on our cold-start data.
 1. Install [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory).
-2. Follow the instructions in LLaMA-Factory to configure the cold-start data in `data/dataset_info.json`, as shown below, then copy the config file `sftconfig/qwen2.5-vl.yaml` into your LLaMA-Factory codebase.
+2. Follow the instructions in LLaMA-Factory to configure the cold-start data in `data/dataset_info.json`, as shown below, then copy the config file `sftconfig/qwen2_5vl_retrv_full_sft.yaml` into your LLaMA-Factory codebase.
 ```
-"AdaTooler-V-CoT-100k": {
-  "file_name": "[YOUR_DATASET_FOLDER]/AdaTooler-V-CoT-100k.json",
+"V-Retrver_SFT": {
+  "file_name": "[YOUR_DATASET_FOLDER]/V-Retrver_SFT.json",
   "formatting": "sharegpt",
   "columns": {
     "messages": "conversations",
@@ -94,28 +94,18 @@ We recommend to use the popular [LLaMA-Factory](https://github.com/hiyouga/LLaMA
 ```
 4. Train Cold-start data with the training configs.
 ```
-llamafactory-cli train sft_configs/qwen2.5-vl.yaml
+llamafactory-cli train sft_configs/qwen2_5vl_retrv_full_sft.yaml
 ```
-
-### Stage 2: Reinforcement Learning (RL)
-#### Data Preprocessing
-We extract the video data into a multi-frame(64 frames), which can be directly obtained from [AdaTooler-V-train-data](https://huggingface.co/datasets/AdaTooler-V/AdaTooler-V-300k). 
-
-We also provide the raw video data. If you would like to customize the number of video frames used for training, you can refer to the code in `scripts/extact_frames.py` to implement this yourself.
-```
-cd verltool
-python examples/data_preprocess/pixel_reasoner/prepare_train.py --dataset_path=AdaTooler-V/AdaTooler-V-300k --local_dir=data/AdaTooler-V --version max_8192 --include_videos=True --filter_len=8192
-```
-note that the data preprocessing step will **filter out samples whose length exceeds 8192 tokens**, and this process may take some time to complete (approximately **0.5–1 hour**). If you prefer not to apply this filtering, you can remove the `--filter_len` argument. However, be aware that some samples are longer than 8192 tokens, which **may cause issues during training**. Therefore, if filtering is disabled, please ensure that the `max_prompt_length` is **properly configured during training** to avoid potential problems.
-
-
+### Stage 2:Rejection Sampling Fine-Tuning (RSFT)
+In this stage, we improve reasoning reliability through Rejection Sampling.The training process and configurations for this stage are identical to Stage 1 (SFT). You simply need to prepare the RSFT dataset and follow the same training steps described in Stage 1.
+### Stage 3: Reinforcement Learning (RL)
 #### Training
-The reinforcement learning is based on the cold-start model. You could either use the model produced in stage 1, or directly download it from [AdaTooler-V-SFT-model](https://huggingface.co/AdaTooler-V/AdaTooler-V-SFT-model). 
+The reinforcement learning is based on the RSFT model. You could either use the model produced in stage 1, or directly download it from [V-Retrver/V-Retrver-RFT-7B]([https://huggingface.co/AdaTooler-V/AdaTooler-V-SFT-model](https://huggingface.co/V-Retrver/V-Retrver-RFT-7B)). 
 ```
 cd verltool
-bash examples/train/AdaTooler-V/train_qwen25vl.sh
+bash examples/train/V-Retrver/train_qwen25vl.sh
 ```
-It should be able to run under 8 H100/A100 GPUs with 80GB memory. From more details，please refer to [verl-tool](https://github.com/TIGER-AI-Lab/verl-tool).
+It should be able to run under 8 A800 GPUs with 80GB memory. From more details，please refer to [verl-tool](https://github.com/TIGER-AI-Lab/verl-tool).
 
 Tips:
 - if output shared memory, try lower the `data.dataloader_num_workers`
