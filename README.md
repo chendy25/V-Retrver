@@ -103,7 +103,7 @@ In this stage, we improve reasoning reliability through Rejection Sampling.The t
 The reinforcement learning is based on the RSFT model. You could either use the model produced in stage 1, or directly download it from [V-Retrver/V-Retrver-RFT-7B](https://huggingface.co/V-Retrver/V-Retrver-RFT-7B). 
 ```
 cd verltool
-bash examples/train/V-Retrver/train_qwen25vl.sh
+bash examples/train/v-retrver/train_qwen25vl.sh
 ```
 It should be able to run under 8 A800 GPUs with 80GB memory. From more details，please refer to [verl-tool](https://github.com/TIGER-AI-Lab/verl-tool).
 
@@ -115,6 +115,16 @@ Tips:
 
 
 ## 🔮 Inference & Evaluation
+We recommend using our provided json files and scripts for easier evaluation. 
+
+The json files can be downloaded at: [🤗 [V-Retrver-eval-data](https://huggingface.co/datasets/V-Retrver/V-Retrver-eval-data)].
+
+Finally, conduct evaluation on all benchmarks using the following scripts
+
+```
+cd verltool
+bash examples/train/AdaTooler-V/eval.sh
+```
 
 
 
