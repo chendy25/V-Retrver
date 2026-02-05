@@ -21,7 +21,7 @@ All code, models, and data are fully released.
 
 
 ## 🔥 News
-- [2025/12/03] We release the code, model, data of V-Retrver
+- [2026/2/06] We release the code, model, data of V-Retrver
 
 ## 📍 Features
 
