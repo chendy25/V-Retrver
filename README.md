@@ -133,7 +133,7 @@ python sliding_window_processor.py \
   --window_size 20
 ```
 ### Top-20 Direct Evaluation
-Use rerank_top20_processor.py (or the corresponding mode) to directly evaluate and rerank the top-20 candidates, skipping the sliding window logic. This script also wraps the core eval.sh to perform the evaluation.
+Use `rerank_top20_processor.py` (or the corresponding mode) to directly evaluate and rerank the top-20 candidates, skipping the sliding window logic. This script also wraps the core eval.sh to perform the evaluation.
 ```
 python rerank_top20_processor.py \
   --input_parquet /path/to/your/input_data.parquet \
