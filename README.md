@@ -127,6 +127,7 @@ bash examples/train/AdaTooler-V/eval.sh
 ### Sliding Window Evaluation
 Use `sliding_window_processor.py` for reranking over a large candidate pool. This script splits the input Parquet file into specific windows (default strategy: 30-49, 20-39, etc.), calls the core eval.sh for each window, and merges the results to update the final rankings.
 ```
+cd verltool
 python sliding_window_processor.py \
   --input_parquet /path/to/your/input_data.parquet \
   --output_parquet /path/to/save/reranked_data.parquet \
@@ -135,6 +136,7 @@ python sliding_window_processor.py \
 ### Top-20 Direct Evaluation
 Use `rerank_top20_processor.py` (or the corresponding mode) to directly evaluate and rerank the top-20 candidates, skipping the sliding window logic. This script also wraps the core eval.sh to perform the evaluation.
 ```
+cd verltool
 python rerank_top20_processor.py \
   --input_parquet /path/to/your/input_data.parquet \
   --output_parquet /path/to/save/top20_reranked.parquet \
