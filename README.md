@@ -57,8 +57,15 @@ V-Retrver-7B demonstrates strong performance across multiple multimodal retrieva
 
 
 ## 📐 Set up
-
-
+```
+cd verltool
+git submodule update --init --recursive
+conda create --name verl-tool-env python=3.10
+conda activate verl-tool-env
+pip install -e verl
+pip install -e ".[vllm,acecoder,torl,search_tool]"
+pip install "flash-attn==2.8.3" --no-build-isolation
+```
 
 
 
