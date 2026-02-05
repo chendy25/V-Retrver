@@ -36,7 +36,7 @@ V-Retrver-7B demonstrates strong performance across multiple multimodal retrieva
 
 
 <div align="center">
-  <img src="./assets/tab.png" alt="Descriptive alt text" width="90%">
+  <img src="./assets/tab4.png" alt="Descriptive alt text" width="90%">
 </div>
 
 
