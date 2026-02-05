@@ -74,7 +74,7 @@ V-Retrver-7B demonstrates strong performance across multiple multimodal retrieva
 
 ## Acknowledgements
 
-We sincerely appreciate the contributions of the open-source community. The related projects are as follows: [verl-tool](https://github.com/TIGER-AI-Lab/verl-tool), [verl](https://github.com/volcengine/verl),  [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)
+We sincerely appreciate the contributions of the open-source community. The related projects are as follows: [verl-tool](https://github.com/TIGER-AI-Lab/verl-tool), [verl](https://github.com/volcengine/verl),  [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory), [LamRA](https://github.com/Code-kunkun/LamRA)
 ## Citations
 
 If you find our work helpful for your research, please consider citing our work.   
