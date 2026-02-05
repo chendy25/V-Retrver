@@ -100,7 +100,7 @@ llamafactory-cli train sft_configs/qwen2_5vl_retrv_full_sft.yaml
 In this stage, we improve reasoning reliability through Rejection Sampling.The training process and configurations for this stage are identical to Stage 1 (SFT). You simply need to prepare the RSFT dataset and follow the same training steps described in Stage 1.
 ### Stage 3: Reinforcement Learning (RL)
 #### Training
-The reinforcement learning is based on the RSFT model. You could either use the model produced in stage 1, or directly download it from [V-Retrver/V-Retrver-RFT-7B]([https://huggingface.co/AdaTooler-V/AdaTooler-V-SFT-model](https://huggingface.co/V-Retrver/V-Retrver-RFT-7B)). 
+The reinforcement learning is based on the RSFT model. You could either use the model produced in stage 1, or directly download it from [V-Retrver/V-Retrver-RFT-7B](https://huggingface.co/V-Retrver/V-Retrver-RFT-7B). 
 ```
 cd verltool
 bash examples/train/V-Retrver/train_qwen25vl.sh
