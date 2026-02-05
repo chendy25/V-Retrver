@@ -96,7 +96,7 @@ We recommend to use the popular [LLaMA-Factory](https://github.com/hiyouga/LLaMA
 ```
 llamafactory-cli train sft_configs/qwen2_5vl_retrv_full_sft.yaml
 ```
-### Stage 2:Rejection Sampling Fine-Tuning (RSFT)
+### Stage 2: Rejection Sampling Fine-Tuning (RSFT)
 In this stage, we improve reasoning reliability through Rejection Sampling.The training process and configurations for this stage are identical to Stage 1 (SFT). You simply need to prepare the RSFT dataset and follow the same training steps described in Stage 1.
 ### Stage 3: Reinforcement Learning (RL)
 #### Training
