@@ -1,6 +1,6 @@
 # V-Retrver: Evidence-Driven Agentic Reasoning for Universal Multimodal Retrieval
 
-[[📖 Paper]()] [[🤗 V-Retrver-7B-model](https://huggingface.co/V-Retrver/V-Retrver-7B)] [🤗[V-Retrver-RFT-model](https://huggingface.co/V-Retrver/V-Retrver-RFT-7B)] [🤗[V-Retrver-SFT-model](https://huggingface.co/V-Retrver/V-Retrver-SFT-7B)] [[🤗 V-Retrver-train-data](https://huggingface.co/datasets/V-Retrver/V-Retrver-train-data)] [🤗 [V-Retrver-eval-data](https://huggingface.co/datasets/V-Retrver/V-Retrver-eval-data)]
+[[📖 Paper](https://arxiv.org/abs/2602.06034)] [[🤗 V-Retrver-7B-model](https://huggingface.co/V-Retrver/V-Retrver-7B)] [🤗[V-Retrver-RFT-model](https://huggingface.co/V-Retrver/V-Retrver-RFT-7B)] [🤗[V-Retrver-SFT-model](https://huggingface.co/V-Retrver/V-Retrver-SFT-7B)] [[🤗 V-Retrver-train-data](https://huggingface.co/datasets/V-Retrver/V-Retrver-train-data)] [🤗 [V-Retrver-eval-data](https://huggingface.co/datasets/V-Retrver/V-Retrver-eval-data)]
 
 
 
@@ -147,10 +147,3 @@ python rerank_top20_processor.py \
 ## Acknowledgements
 
 We sincerely appreciate the contributions of the open-source community. The related projects are as follows: [verl-tool](https://github.com/TIGER-AI-Lab/verl-tool), [verl](https://github.com/volcengine/verl),  [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory), [LamRA](https://github.com/Code-kunkun/LamRA)
-## Citations
-
-If you find our work helpful for your research, please consider citing our work.   
-
-```
-
-```
