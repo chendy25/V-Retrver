@@ -147,3 +147,17 @@ python rerank_top20_processor.py \
 ## Acknowledgements
 
 We sincerely appreciate the contributions of the open-source community. The related projects are as follows: [verl-tool](https://github.com/TIGER-AI-Lab/verl-tool), [verl](https://github.com/volcengine/verl),  [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory), [LamRA](https://github.com/Code-kunkun/LamRA)
+
+
+## Citations
+
+If you find our work helpful for your research, please consider citing our work.   
+
+```
+@article{wang2025adatooler,
+  title={V-Retrver: Evidence-Driven Agentic Reasoning for Universal Multimodal Retrieval},
+  author={Dongyang Chen and Chaoyang Wang and Dezhao Su and Xi Xiao and Zeyu Zhang and Jing Xiong and Qing Li and Yuzhang Shang and Shichao Kan},
+  journal={arXiv preprint arXiv:2602.06034},
+  year={2026}
+}
+```
