@@ -9,7 +9,7 @@ dataset_name=V_Retrver_train_data
 train_data=[$(pwd)/data/${dataset_name}/v_retrver_rl_train.json.parquet]
 val_data=[$(pwd)/data/${dataset_name}/v_retrver_rl_train.json.parquet]
 
-model_name=V-Retrver/V-Retrver-7B
+model_name=V-Retrver/V-Retrver-RFT-7B
 
 # model_name=TIGER-Lab/PixelReasoner-RL-v1
 rl_alg=grpo # gae(ppo) or grpo, if grpo, then better set n>1 otherwise the group norm can not be effective
