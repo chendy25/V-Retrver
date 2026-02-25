@@ -154,9 +154,9 @@ We sincerely appreciate the contributions of the open-source community. The rela
 If you find our work helpful for your research, please consider citing our work.   
 
 ```
-@article{wang2025adatooler,
+@article{chen2026v,
   title={V-Retrver: Evidence-Driven Agentic Reasoning for Universal Multimodal Retrieval},
-  author={Dongyang Chen and Chaoyang Wang and Dezhao Su and Xi Xiao and Zeyu Zhang and Jing Xiong and Qing Li and Yuzhang Shang and Shichao Kan},
+  author={Chen, Dongyang and Wang, Chaoyang and SU, Dezhao and Xiao, Xi and Zhang, Zeyu and Xiong, Jing and Li, Qing and Shang, Yuzhang and Ka, Shichao},
   journal={arXiv preprint arXiv:2602.06034},
   year={2026}
 }
