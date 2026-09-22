@@ -21,6 +21,8 @@ All code, models, and data are fully released.
 
 
 ## 🔥 News
+
+- [2026/9/21] V-Retrver was accepted by EMNLP 2026 Main !!!
 - [2026/2/06] We release the code, model, data of V-Retrver
 
 ## 📍 Features
